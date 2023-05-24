@@ -1,0 +1,86 @@
+/* .fnt1 {
+    font-size: 1.8rem;
+    font-family: unset;
+    margin-left: 1.3rem;
+    font-weight: 300;
+    color:#00b4fe;
+}
+.fnt{
+    font-size: 1rem;
+    font-family: unset;
+    margin-left: 1.3rem;
+    font-weight: 330;
+    color:black;
+    margin-top: -0.5rem;
+}
+.employeeDirectoryDisplay{
+    margin-top: -0.8rem;
+} */
+
+.employee-img {
+    width: 100%;
+    max-width: 50px;
+    height: auto;
+    margin-right: 1.3rem;
+    margin-left: 0.5rem;
+    margin-top: 1.8rem;
+}
+.SaketaImage{
+    width: 100%;
+    max-width: 10rem;
+    margin-left: 3.7rem;
+    margin-top: 0.27rem;
+}
+
+.logo-div {
+    display: flex;
+    justify-content: center;
+    align-self: end;
+}
+.logo-div img {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+    margin-left: 4rem;
+}
+
+.page-title h1 {
+    color: #00b4fe;
+}
+.page-title p {
+    font-size: 1rem;
+    margin-bottom: 0 !important;
+    font-weight: 350;
+}
+.fnt {
+    font-family: unset;
+    margin-left: 0.85rem;
+}
+.pt-5 {
+    padding-top: 1rem !important;
+}
+.user-info-div h2 span {
+    color: #45c7fc;
+    font-weight: 380;
+}
+@media screen and (min-width: 1024px) and (max-width: 1400px){
+.page-title h1 {
+    font-size: 30px;
+    font-weight: 200;
+    margin-bottom: 0 !important;
+}
+}
+.logo-div {
+    display: flex;
+    justify-content: center;
+    align-self: end;
+}
+@media screen and (min-width: 1024px) and (max-width: 1400px){
+.user-info-div h2 {
+    font-size: 1.65rem;
+    font-weight: 350;
+}}
+.px-5 {
+    padding-right: 1.8rem !important;
+    padding-left: 1.8rem !important;
+}

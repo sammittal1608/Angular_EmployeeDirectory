@@ -1,0 +1,17 @@
+<div class="row">
+    <h5 class="sidebarTitle">Departments</h5>
+    <ul class="listofsidebar" *ngFor="let dept of departments.keys()">
+      <li >{{dept}} ({{departments.get(dept)}})</li>
+    </ul>
+
+    <h5 class="sidebarTitle">Offices</h5>
+    <ul  class="listofsidebar" *ngFor="let office of offices.keys()">
+      <li>{{office}} ({{offices.get(office)}})</li>
+    </ul>
+
+    <h5 class="sidebarTitle">Job Titles</h5>
+    <ul class="listofsidebar" *ngFor="let jobTitle of jobTitles.keys()">
+      <li >{{jobTitle}} ({{jobTitles.get(jobTitle)}})</li>
+    </ul>
+</div>
+
