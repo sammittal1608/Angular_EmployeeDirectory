@@ -37,8 +37,6 @@ export class EmployeeFormComponent implements OnInit {
   newEmployee: Employee = new Employee();
   private mySubject = new Subject<any>();
 
-
-
   departments: Department[] = [];
   offices: Office[] = [];
   jobTitles: JobTitle[] = [];
@@ -115,7 +113,7 @@ export class EmployeeFormComponent implements OnInit {
       this.jobTitleService.updateJobTitleCount(jobTitleName);
       this.isFormSubmit = true;
     }
-    
+
 
     if (this.mode === 'add') {
 
@@ -147,7 +145,7 @@ export class EmployeeFormComponent implements OnInit {
       if (employeeIndex !== -1) {
         employeesList[employeeIndex] = this.newEmployee;
         localStorage.setItem('employee', JSON.stringify(employeesList));
-        
+
       }
       // let departmentName = this.departmentService.getDepartmentById(this.editEmployee?.department);
       // this.departmentService.updateEditDepartmentCount(departmentName);
@@ -171,7 +169,7 @@ export class EmployeeFormComponent implements OnInit {
       this.isAddEmployeeForm = false;
       this.employeeAdded.emit();
     }
-    if(this.isEditEmployeeForm) {
+    if (this.isEditEmployeeForm) {
       this.isEditEmployeeForm = false;
       this.employeeEdited.emit();
     }
