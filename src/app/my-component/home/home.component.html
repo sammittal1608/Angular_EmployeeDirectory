@@ -1,0 +1,14 @@
+<app-header></app-header>
+<div class="d-flex row w-100">
+    <div class="col-2">
+        <app-sidebar (departmentFilter) ="handleDepartmentClick($event)" (officeFilter)="handleOfficeClick($event)" (jobTitleFilter)="handleJobTitleClick($event)" >
+
+        </app-sidebar>
+    </div>
+    <div class="col-10">
+        <app-searchbar (paginationClick)="handleButtonClick($event)" (searchFilterClick)="handleSearchFilter($event)"></app-searchbar>
+        <app-employee-card-container [filteredEmployees]="filterEmployees"></app-employee-card-container>
+
+    </div>
+</div>
+<router-outlet></router-outlet>

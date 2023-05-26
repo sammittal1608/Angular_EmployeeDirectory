@@ -1,0 +1,67 @@
+.employee-details-card {
+    background-color: #e9e8e8;
+    padding: 0.4rem!important;
+}
+
+
+.employee-details-card {
+    /* display: flex; */
+    background-color: #e9e8e8;
+    padding: 0.4rem!important;
+    /* width: 25%; */
+    margin: 0rem;
+}
+ .name {
+    color: black !important;
+    font-size: 14px;
+    font-weight: 500;
+}
+.employee-info p {
+    font-size: 0.7rem;
+    margin: 0px;
+    color: rgb(153, 152, 152);
+}
+
+.employee-info {
+    margin: 0px 10px;
+}
+.row {
+    margin: 0 !important;
+    --bs-gutter-x: 0rem !important;
+}
+.p-1 {
+    padding: 0.5rem 0.2rem!important;
+}
+.d-flex {
+    display: flex!important;
+}
+.col-9 {
+    flex: 0 0 auto;
+    width: 75%;
+} 
+.employee-details-card img {
+    width: 100%;
+    
+    margin: 0.2rem 0.1rem;
+}
+.employee-details-card img {
+    width: 100%;
+    height: auto;
+}
+.bi-telephone-fill {
+    background-color: rgb(153, 152, 152);
+    color: white;
+    height: 0.6rem;
+    width: 0.65rem;
+    font-size: 0.28rem !important;
+    margin: 0.4rem 0.2rem 0.3rem 0.1rem !important;
+}
+.bi {
+    color: rgb(153, 152, 152);
+    font-size: 11px;
+    border-radius: 2px;
+    margin: 0px 0.2rem;
+}
+.cardStructure{
+    width: auto;
+}

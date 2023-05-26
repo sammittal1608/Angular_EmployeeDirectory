@@ -1,0 +1,47 @@
+/* .popup {
+
+     display: flex;
+    
+    justify-content: center; 
+    
+      position: absolute;
+      margin-left: 1rem;
+} */
+    
+/*
+ transition: 0.5s;
+        
+.popup.active {
+    
+     /* top: 50%;
+    
+     opacity: 1;
+    
+     transform: translate(-50%, -50%) scale(1);
+    
+     transition: top 0ms ease-in-out 0ms,
+    
+     opacity 20ms ease-in-out 0ms,
+    
+    transform 20ms ease-in-out 0ms;
+     
+}
+     */
+    
+     .add-btn {
+          width: 120px;
+          height: 33px;
+          font-size: 16px;
+          font-weight: 600;
+      }
+      /* .fa-solid, .fas {
+          font-weight: 900;
+      } */
+      
+      .employee-details-div {
+          width: auto;
+          height: 25rem;
+          padding: 0.8rem;
+          border: 1px solid #999898;
+          margin: 0rem 1.8rem 1rem 3.7rem;
+      }

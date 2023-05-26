@@ -1,0 +1,60 @@
+<div class="searchbar col-md-10 col-sm-12 p-2">
+  <div id="filterInput" class="pagination-div">
+    <button (click)="handleButtonClick('')"><i class="fas fa-user"></i></button>
+    <button *ngFor="let char of letters" class="pagination-div"
+      [ngClass]="{'clicked': (clickedChar === char)}" (click)="handleButtonClick(char)">
+      {{char}}
+    </button>
+  </div>
+  
+
+  <div class="function-div py-3 d-flex">
+    <div class="search-div d-flex">
+      <label>Search</label>
+      <input class="nosubmit" type="search" id="searchInput" placeholder="Enter any keyword"
+        (keyup.enter)="searchFilter()" [(ngModel)]="searchTerm" />
+      <div>
+        <button class="clr-btn" (click)="clearSearch()">Clear</button>
+      </div>
+    </div>
+
+    <div class="filter-btn-div">
+      <label class="filterBy">Filter by</label>
+      <select name="filter-by" [(ngModel)]="searchType" id="filterSelect">
+        <option value="firstName">First Name</option>
+        <option value="lastName">Last Name</option>
+        <option value="firstName">Preferred Name</option>
+        <option value="jobTitle">Job Title</option>
+        <option value="email">Email</option>
+        <option value="office">Office</option>
+        <option value="department">Department</option>
+        <option value="phone">Phone Number</option>
+        <option value="skypeId">Skype ID</option>
+      </select>
+    </div>
+
+    <button class="add-btn" id="add-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="openModal()">
+      Add Employee
+    </button>
+  </div>
+
+  <ng-container *ngIf="showModule">
+    <ng-template #template>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Add Employee</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modalRef?.hide()">
+          
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-employee-form [mode]="'add'" (closeAddForm)="closeForm()" (employeeAdded)="submitForm()"></app-employee-form>
+      </div>
+    </ng-template>
+    <!-- <ng-container *ngTemplateOutlet="template"></ng-container> -->
+  </ng-container>
+
+  <!-- Modal -->
+  <p class="note">
+    <strong>Note:</strong> Please use advanced filter options to refine your results.
+  </p>
+</div>

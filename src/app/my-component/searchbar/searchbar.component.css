@@ -1,0 +1,133 @@
+.pagination-div button {
+    background-color: #00b1fc;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #08adee;
+    border-color: #00b1fc;
+    float: left;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: background-color .3s;
+    margin: 0.1rem 0.1rem;
+}
+
+.pagination-div
+{
+    margin-top: 0.1rem;
+    margin-left: 2.9rem;
+}
+.function-div {
+    align-items: end;
+    width: 64rem;
+    padding-left: 3rem;
+}
+.search-div label {
+    font-size: 0.9rem;
+
+}
+.search-div {
+    align-items: center;
+}
+.clr-btn {
+    background-color: rgb(25, 183, 25);
+    border: 0;
+    color: white;
+    font-size: 1rem;
+    margin-left: 1rem;
+}
+.filter-btn-div {
+    margin-left: 2.5rem;
+    font-size:0.9rem;
+}
+.filter-btn-div {
+    margin-left: 2.5rem;
+    font-size:0.9rem;
+}
+.filterBy{
+    margin-right: 0.5rem;
+}
+.add-btn {
+    /* padding: 0.5rem 1rem; */
+    color: white;
+    border: 0;
+    font-weight: 500;
+    font-size: 1.2rem;
+    background-color: #00b1fc;
+    padding: 1px 0px !important;
+    margin-left: auto;
+    margin-right: 1.8rem;
+}
+.note {
+    font-size: 0.77rem;
+    margin-bottom: 0.7rem;
+    margin-left: 3.8rem;
+}
+.searchbar{
+    margin-left: 14rem;
+    margin: 0.7rem 0.0rem 0rem 1rem!important;
+    width: 65rem;
+    height: 10rem;
+
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1400px){
+    input.nosubmit {
+        border: 1px solid;
+        padding: 0.5rem 0.7rem 0.5rem 2rem !important;
+        font-size: 0.8rem;
+        outline-offset: 0px !important;
+        -webkit-appearance: textfield !important;
+        width: 13.5rem;
+        margin-left: 0.6rem;
+        height: 2rem;
+        background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat 13px center;
+
+    }
+    .filter-btn-div select {
+        padding: 0.3rem 1.5rem 0.5rem 0rem;
+        font-size: 0.9rem;
+        border-radius: 0;
+        margin-top: 0.1rem;
+        height: 2.1rem;
+    }
+    .clr-btn {
+        background-color: rgb(25, 183, 25);
+        border: 0;
+        font-size: 12px;
+        width: 4.5rem;
+        height: 2.1rem;
+        color: white;
+        margin-left: 1.9rem;
+    }
+}
+.add-btn {
+    width: 120px;
+    height: 33px;
+    font-size: 16px;
+    font-weight: 600;
+}
+/* .fa-solid, .fas {
+    font-weight: 900;
+} */
+
+.employee-details-div {
+    width: auto;
+    height: 25rem;
+    padding: 0.8rem;
+    border: 1px solid #999898;
+    margin: 0rem 1.8rem 1rem 3.7rem;
+}
+.clicked{
+    background-color: black;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #08adee;
+    border-color: #00b1fc;
+    float: left;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: background-color .3s;
+    margin: 0.1rem 0.1rem;
+}

@@ -1,0 +1,18 @@
+<div class="employee-details-card d-flex mt-2 ms-2" (click)="handleClick()">
+  <div class="col-3 d-flex">
+    <img src="assets\image\EmployeeImage.jpg" alt="" />
+  </div>
+  <div class="employee-info col-9" id="employeeCard - ${index}">
+    <p class="name" >{{employee.firstName}} <span>{{employee.lastName}}</span>
+    </p>
+    <p >{{getJobTitleName()}}</p>
+    <p >{{getDepartmentName()}}</p>
+    <span class="d-flex align-items-center">
+      <i class="bi bi-telephone-fill"></i>
+      <i class="bi bi-envelope-fill"></i>
+      <i class="bi bi-chat-fill"></i>
+      <i class="bi bi-star-fill"></i>
+      <i class="bi bi-heart-fill"></i>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="employee-details-div fnt row pb-2">
+  <div *ngFor="let employee of filteredEmployees" class="col-lg-3 col-md-4 col-sm-6 p-0">
+    <app-employee-card [employee]="employee" (cardClick)="handleCardClick($event)"></app-employee-card>    
+  </div>
+</div>
+<ng-container *ngIf="openEditForm">
+  <ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Edit Employee</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.hide()">
+      </button>
+    </div>
+    <div class="modal-body ">
+      <app-employee-form [mode]="'edit'" (employeeEdited)="closeModal()" (closeEditForm)="closeModal()" [editEmployee]="editEmployee" ></app-employee-form>
+    </div>
+  
+  </ng-template>
+  <!-- <ng-container *ngTemplateOutlet="template"></ng-container> -->
+</ng-container>

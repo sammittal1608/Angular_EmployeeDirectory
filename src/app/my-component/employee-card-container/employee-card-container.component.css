@@ -1,0 +1,26 @@
+.employee-details-div {
+    display: flex;
+    width: auto;
+    /* height: 25rem; */
+    /* padding: 0.8rem; */
+    border: 1px solid #999898;
+    margin : -1rem 1.55rem 2rem 4.5rem;
+}
+.employee-details-card {
+    background-color: #e9e8e8;
+    padding: 0.4rem!important;
+}
+.container{
+    display: flex;
+}
+
+.fnt{
+    
+}
+.p-2{
+    padding: 0.5rem 0.2rem!important;
+    
+}
+.ss{
+    width: auto;
+}

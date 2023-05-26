@@ -1,0 +1,8 @@
+.home{
+    /* margin-left: 5px; */
+    display: flex;
+}
+.sidebar-margin{
+    position:absolute;
+    margin-left: 10rem;
+}

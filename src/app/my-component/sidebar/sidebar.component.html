@@ -1,0 +1,16 @@
+<div class="row">
+  <h5 class="sidebarTitle">Departments</h5>
+  <ul class="listofsidebar" *ngFor="let dept of departments">
+    <li (click)="handleDepartmentClick(dept.name)" [ngClass]="{ 'clicked': (departmentName ===dept.name)}">{{dept.name}} ({{dept.count}})</li>
+  </ul>
+
+  <h5 class="sidebarTitle">Offices</h5>
+  <ul class="listofsidebar" *ngFor="let office of offices">
+    <li (click)="handleOfficeClick(office.name)" [ngClass]="{ 'clicked': (officeName ===office.name)}">{{office.name}} ({{office.count}})</li>
+  </ul>
+
+  <h5 class="sidebarTitle">Job Titles</h5>
+  <ul class="listofsidebar" *ngFor="let jobTitle of jobTitles">
+    <li (click)="handleJobTitleClick(jobTitle.name)"[ngClass]="{'clicked': (jobTitleName ===jobTitle.name)}">{{jobTitle.name}} ({{jobTitle.count}})</li>
+  </ul>
+</div>
