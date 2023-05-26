@@ -56,7 +56,6 @@ export class EmployeeFormComponent implements OnInit {
   @Input() employee !: Employee;
   ngOnInit() {
     if (this.editEmployee) {
-      this.newEmployee = this.editEmployee;
       this.myForm.patchValue({
         firstName: this.editEmployee.firstName,
         lastName: this.editEmployee.lastName,
@@ -147,15 +146,16 @@ export class EmployeeFormComponent implements OnInit {
         localStorage.setItem('employee', JSON.stringify(employeesList));
 
       }
-      // let departmentName = this.departmentService.getDepartmentById(this.editEmployee?.department);
-      // this.departmentService.updateEditDepartmentCount(departmentName);
+      console.log(this.editEmployee);
+      let departmentName = this.departmentService.getDepartmentById(this.editEmployee?.department);
+      this.departmentService.updateEditDepartmentCount(departmentName);
 
-      // let officeName = this.officeService.getOfficeById(this.editEmployee?.office);
-      // this.officeService.updateEditOfficeCount(officeName);
+      let officeName = this.officeService.getOfficeById(this.editEmployee?.office);
+      this.officeService.updateEditOfficeCount(officeName);
 
-      // let jobTitleName = this.jobTitleService.getJobTitleById(this.editEmployee?.jobTitle);
-      // this.jobTitleService.updateEditJobTitleCount(jobTitleName);
-      // this.submitModal();
+      let jobTitleName = this.jobTitleService.getJobTitleById(this.editEmployee?.jobTitle);
+      this.jobTitleService.updateEditJobTitleCount(jobTitleName);
+      this.submitModal();
     }
 
     // 
