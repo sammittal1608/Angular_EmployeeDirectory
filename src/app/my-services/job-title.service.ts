@@ -1,55 +1,47 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
 import { JobTitle } from '../my-modals/jobTitle';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JobTitleService {
+  
+  private apiUrl = 'https://localhost:7152/api/jobTitle';
+  jobTitles : JobTitle[] = [];
+  
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-  getJobTitle(): Observable<JobTitle[]> {
-    let jobTitles = localStorage.getItem('jobTitles');
-    if (jobTitles) {
-      let data = JSON.parse(jobTitles);
-      return of(data);
-    } else {
-      let jobTitleList = [
-        new JobTitle({ id: 1, name: 'SharePoint Practice Head', count: 0 }),
-        new JobTitle({ id: 2, name: '.Net Development Lead', count: 0 }),
-        new JobTitle({ id: 3, name: 'Recruiting Expert', count: 0 }),
-        new JobTitle({ id: 4, name: 'BI Developer', count: 0 }),
-        new JobTitle({ id: 5, name: 'Business Analyst', count: 0 })
-      ]
-      localStorage.setItem('jobTitles', JSON.stringify(jobTitleList));
-      return of(jobTitleList);
-    }
+  getJobTitleById(jobTitleId: any): Observable<JobTitle> {
+    const url = `${this.apiUrl}/${jobTitleId}`;
+    return this.http.get<JobTitle>(url);
   }
-  getJobTitleById(jobTitleId: any): any {
-    let JobTitles = localStorage.getItem('jobTitles');
-    if (JobTitles) {
-      let data = JSON.parse(JobTitles);
-      let jobTitle = data.find((j: JobTitle) => Number(j.id) == jobTitleId);
-      return jobTitle;
-    }
-    return null;
 
+  getJobTitles(): Observable<JobTitle[]> {
+    return this.http.get<JobTitle[]>(this.apiUrl)
+    .pipe(
+      map((jobTitles: JobTitle[]) => {
+        this.jobTitles = jobTitles;
+        return jobTitles;
+      })
+    );
   }
-  updateJobTitleCount(jobTitleName: JobTitle): void {
-    let jobTitles = JSON.parse(localStorage.getItem('jobTitles') || '[]');
-    let jobTitleIndex: number = jobTitles.findIndex((j: JobTitle) => j.id === jobTitleName.id);
-    if (jobTitleIndex !== -1) {
-      jobTitles[jobTitleIndex].count++;
-      localStorage.setItem('jobTitles', JSON.stringify(jobTitles));
-    }
-  }
-  updateEditJobTitleCount(jobTitleName: JobTitle): void {
-    let jobTitles = JSON.parse(localStorage.getItem('jobTitles') || '[]');
-    let jobTitleIndex: number = jobTitles.findIndex((j: JobTitle) => j.id === jobTitleName.id);
-    if (jobTitleIndex !== -1) {
-      jobTitles[jobTitleIndex].count--;
-      localStorage.setItem('jobTitles', JSON.stringify(jobTitles));
 
+  getJobTitleList(): JobTitle[]{
+    return this.jobTitles;
+  }
+
+  getJobTitleByJobId(JobTitleId : string){
+    let jobTitle = this.jobTitles.find((j:JobTitle) => j.id == JobTitleId)
+    return jobTitle;
+  }
+
+  getJobTitleIdByName(jobTitleName :string):string{
+    let JobTitle = this.jobTitles.find((j:JobTitle) => j.name == jobTitleName);
+    if(JobTitle){
+      return JobTitle.id;
     }
+    return '';
   }
 }

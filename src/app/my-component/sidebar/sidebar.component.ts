@@ -5,6 +5,7 @@ import { JobTitleService } from '../../my-services/job-title.service';
 import { JobTitle } from '../../my-modals/jobTitle';
 import { Office } from '../../my-modals/office';
 import { OfficeService } from '../../my-services/office.service';
+import { EmployeeService } from 'src/app/my-services/employee.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,66 +20,84 @@ export class SidebarComponent {
   isDepartmentFilterClicked?: Boolean = false;
   isOfficeFilterClicked?: Boolean = false;
   isJobTitleFilterClicked?: boolean = false;
-  departmentName?: string = "";
-  officeName?: string = "";
-  jobTitleName?: string = "";
+  departmentId: string = "";
+  officeId: string = "";
+  jobTitleId: string = "";
 
   @Output() departmentFilter: EventEmitter<string> = new EventEmitter<string>();
   @Output() officeFilter: EventEmitter<string> = new EventEmitter<string>();
   @Output() jobTitleFilter: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private departmentService: DepartmentService, private officeService: OfficeService, private jobTitleService: JobTitleService) {
-    this.departmentService.getDepartment().subscribe(
+  constructor(private departmentService: DepartmentService, private officeService: OfficeService, private jobTitleService: JobTitleService, private employeeService: EmployeeService) {
+
+    this.getOffices();
+    this.getJobTitle();
+    this.getDepartments();
+    this.employeeService.departmentCountUpdated.subscribe(() => {
+      this.getDepartments();
+      this.getJobTitle();
+      this.getOffices();
+
+    })
+  }
+  getDepartments() {
+    this.departmentService.getDepartments().subscribe(
       (departments: Department[]) => {
         this.departments = departments;
+      }, error => {
+
       });
-    this.officeService.getOffice().subscribe(
+  }
+  getOffices() {
+    this.officeService.getOffices().subscribe(
       (offices: Office[]) => {
         this.offices = offices;
+      }, error => {
+
       });
-    this.jobTitleService.getJobTitle().subscribe(
+  }
+  getJobTitle() {
+    this.jobTitleService.getJobTitles().subscribe(
       (jobTitles: JobTitle[]) => {
         this.jobTitles = jobTitles;
+      }, error => {
+
       });
   }
-  handleDepartmentClick(dept: string) {
-    if (!this.isDepartmentFilterClicked) {
 
-      this.isDepartmentFilterClicked = !this.isDepartmentFilterClicked;
-      this.departmentName = dept;
+  handleDepartmentClick(deptId: string) {
+    if (this.departmentId == deptId) {
+      deptId = "";
+      this.departmentId = deptId;
     }
+
     else {
-      this.isDepartmentFilterClicked = !this.isDepartmentFilterClicked;
-      dept = "";
-      this.departmentName = dept;
+      this.departmentId = deptId;
     }
-    this.departmentFilter.emit(dept);
+
+    this.departmentFilter.emit(deptId);
   }
 
-  handleOfficeClick(office: string) {
-    if (!this.isOfficeFilterClicked) {
-      this.isOfficeFilterClicked = !this.isOfficeFilterClicked;
-      this.officeName = office;
+  handleOfficeClick(officeId: string) {
+    if (this.officeId == officeId) {
+      officeId = "";
+      this.officeId = officeId;
     }
     else {
-      this.isOfficeFilterClicked = !this.isOfficeFilterClicked;
-      office = "";
-      this.officeName = office;
+      this.officeId = officeId;
     }
-    this.officeFilter.emit(office);
+    this.officeFilter.emit(officeId);
   }
 
-  handleJobTitleClick(jobTitle: string) {
-    if (!this.isJobTitleFilterClicked) {
-      this.isJobTitleFilterClicked = !this.isJobTitleFilterClicked;
-      this.jobTitleName = jobTitle
+  handleJobTitleClick(jobTitleId: string) {
+    if (this.jobTitleId == jobTitleId) {
+      jobTitleId = "";
+      this.jobTitleId = jobTitleId;
     }
     else {
-      this.isJobTitleFilterClicked = !this.isJobTitleFilterClicked;
-      jobTitle = "";
-      this.jobTitleName = jobTitle;
+      this.jobTitleId = jobTitleId;
     }
-    this.jobTitleFilter.emit(jobTitle);
+    this.jobTitleFilter.emit(jobTitleId);
   }
 }
 

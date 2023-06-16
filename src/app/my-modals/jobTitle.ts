@@ -1,6 +1,6 @@
 export class JobTitle {
 
-    id: number;
+    id: string;
     name: string;
     count: number;
 
@@ -8,6 +8,6 @@ export class JobTitle {
 
         this.id = args.id;
         this.name = args.name;
-        this.count = args.count;
+        this.count = args.count
     }
 }

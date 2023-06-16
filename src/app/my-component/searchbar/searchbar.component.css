@@ -61,7 +61,7 @@
 .note {
     font-size: 0.77rem;
     margin-bottom: 0.7rem;
-    margin-left: 3.8rem;
+    margin-left: 3rem;
 }
 .searchbar{
     margin-left: 14rem;
@@ -77,7 +77,7 @@
         padding: 0.5rem 0.7rem 0.5rem 2rem !important;
         font-size: 0.8rem;
         outline-offset: 0px !important;
-        -webkit-appearance: textfield !important;
+        /* -webkit-appearance: textfield !important; */
         width: 13.5rem;
         margin-left: 0.6rem;
         height: 2rem;
@@ -119,15 +119,5 @@
     margin: 0rem 1.8rem 1rem 3.7rem;
 }
 .clicked{
-    background-color: black;
-    color: white;
-    width: 32px;
-    height: 32px;
-    border: 1px solid #08adee;
-    border-color: #00b1fc;
-    float: left;
-    font-size: 1.2rem;
-    text-decoration: none;
-    transition: background-color .3s;
-    margin: 0.1rem 0.1rem;
+    background-color: black !important;
 }

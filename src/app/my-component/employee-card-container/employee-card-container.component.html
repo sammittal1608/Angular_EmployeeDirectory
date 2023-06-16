@@ -3,7 +3,7 @@
     <app-employee-card [employee]="employee" (cardClick)="handleCardClick($event)"></app-employee-card>    
   </div>
 </div>
-<ng-container *ngIf="openEditForm">
+<!-- <ng-container *ngIf="openEditForm"> -->
   <ng-template #template>
     <div class="modal-header">
       <h4 class="modal-title pull-left">Edit Employee</h4>
@@ -11,9 +11,9 @@
       </button>
     </div>
     <div class="modal-body ">
-      <app-employee-form [mode]="'edit'" (employeeEdited)="closeModal()" (closeEditForm)="closeModal()" [editEmployee]="editEmployee" ></app-employee-form>
+      <app-employee-form [employee]="editEmployee" (closeForm)="closeModal()"></app-employee-form>
     </div>
   
   </ng-template>
   <!-- <ng-container *ngTemplateOutlet="template"></ng-container> -->
-</ng-container>
+<!-- </ng-container> -->

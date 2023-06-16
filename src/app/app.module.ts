@@ -13,10 +13,16 @@ import { EmployeeCardContainerComponent } from './my-component/employee-card-con
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FilterObject } from './my-modals/filter-object';
+import { Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
-
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'addAndEditEmployee', component: EmployeeFormComponent},
+  { path: 'department', component: SidebarComponent }
+];
 
 @NgModule({
   declarations: [
@@ -32,6 +38,7 @@ import { FilterObject } from './my-modals/filter-object';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,

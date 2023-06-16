@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output, TemplateRef, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { ElementRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Employee } from '../../my-modals/employee';
 import { EmployeeService } from 'src/app/my-services/employee.service';
@@ -25,12 +24,14 @@ export class SearchbarComponent {
 
   constructor(private modalService: BsModalService ,employeeService : EmployeeService) {
     this.employeeService = employeeService;
+    this.searchType = 'preferredName';
    }
 
   letters: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   isEmployeeAdd: boolean = false;
-  isButtonClick: Boolean = false;
-  employee?: Employee
+  // isButtonClick: Boolean = false;
+  activeButton: string | null = null;
+  employee?: Employee;
   clickedChar?: string = '';
 
   openModal(): void {
@@ -41,7 +42,6 @@ export class SearchbarComponent {
 
   ShowModal() {
     this.modalRef = this.modalService.show(this.AddModal);
-
   }
 
   closeModal(): void {
@@ -50,32 +50,25 @@ export class SearchbarComponent {
   }
 
   handleButtonClick(char: string) {
-    if (!this.isButtonClick) {
-      this.isButtonClick = true;
-      this.clickedChar = char;
+    if (this.activeButton === char) {
+      this.activeButton = null;
+    } else {
+      this.activeButton = char;
     }
-    if (char === '') {
-      this.isButtonClick = false;
-      this.clickedChar = '';
-    }
-    this.paginationClick.emit(char);
+    this.paginationClick.emit(this.activeButton || '');
   }
-
+  
   searchFilter() {
     this.searchFilterClick.emit([this.searchTerm, this.searchType]);
-    console.log(this.searchTerm, this.searchType);
   }
 
   clearSearch() {
     this.searchTerm = "";
-    this.searchType = "";
+    this.searchType = "preferredName";
     this.searchFilterClick.emit([this.searchTerm, this.searchType]);
   }
+
   closeForm(){
-    this.modalService.hide();
-  }
-  submitForm(){
-    this.modalService.hide();
-    
+    this.modalService?.hide();
   }
 }
