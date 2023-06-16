@@ -49,10 +49,10 @@ export class EmployeeService {
           this.departmentCountUpdated.next();
         });
         this.jobTitleService?.getJobTitles().subscribe(() => {
-          this.departmentCountUpdated.next();
+          this.jobTitleCountUpdated.next();
         });
         this.officeService?.getOffices().subscribe(() => {
-          this.departmentCountUpdated.next();
+          this.officeCountUpdated.next();
         });
 
       })
@@ -84,7 +84,7 @@ export class EmployeeService {
     }
     return null;
   }
-  
+
   searchAndFilter(filterObject: FilterObject) {
     this.filtersUpdated.next(filterObject);
   }

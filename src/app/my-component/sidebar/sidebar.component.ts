@@ -35,10 +35,14 @@ export class SidebarComponent {
     this.getDepartments();
     this.employeeService.departmentCountUpdated.subscribe(() => {
       this.getDepartments();
-      this.getJobTitle();
-      this.getOffices();
-
     })
+    this.employeeService.officeCountUpdated.subscribe(() => {
+      this.getOffices();
+    })
+    this.employeeService.jobTitleCountUpdated.subscribe(() => {
+      this.getJobTitle();
+    })
+
   }
   getDepartments() {
     this.departmentService.getDepartments().subscribe(
