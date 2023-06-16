@@ -64,25 +64,8 @@ export class EmployeeFormComponent implements OnInit {
     }, error => {
       
     });
-    // this.departmentService.getDepartmentList().subscribe(
-    //   (departments: Department[]) => {
-    //     this.departments = departments;
-    //   }, error => {
-      
-    //   });
-    // this.officeService.getOfficeList().subscribe(
-    //   (offices: Office[]) => {
-    //     this.offices = offices;
-    //   }, error => {
-      
-    //   });
-    // this.jobTitleService.getJobTitleList().subscribe(
-    //   (jobTitles: JobTitle[]) => {
-    //     this.jobTitles = jobTitles;
-    //   }, error => {
-      
-    //   });
   }
+  
   onSubmit() {
     this.newEmployee.firstName = this.myForm.controls['firstName'].value;
     this.newEmployee.lastName = this.myForm.controls['lastName'].value;

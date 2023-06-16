@@ -47,44 +47,6 @@ getOffice(){
     this.office = data;
   });
 }
-
-  // getDepartmentName(): string{
-  //   let department;
-  //   this.departmentService.getDepartmentById(this.employee.department).subscribe(data =>{
-  //     department = data;
-  //   }, error => {
-      
-  //   })
-  //   if(department){
-  //     return department;
-  //   }
-  //   return "";
-  // }
-  // getOfficeName(): string{
-  //   let office ;
-  //   this.officeService.getOfficeById(this.employee.office).subscribe(data =>{
-  //      office = data;
-  //   }, error => {
-      
-  //   })
-  //   if(office){
-
-  //     return office;
-  //   }
-  //   return "";
-  // }
-  // getJobTitleName(): string{
-  //   let jobTitle
-  //   this.jobTitleService.getJobTitleById(this.employee.jobTitle).subscribe(data =>{
-  //     jobTitle = data;
-  //   }, error => {
-
-  //   })
-  //   if(jobTitle){
-  //     return jobTitle;
-  //   }
-  //   return "";
-  // }
   handleClick(){
     this.cardClick.emit(this.employee); 
   }

@@ -21,8 +21,6 @@ export class EmployeeService {
     this.jobTitleService = jobTitleService;
     this.officeService = officeService;
   }
-
-
   filtersUpdated: Subject<FilterObject> = new Subject<FilterObject>();
   employeesUpdated: Subject<void> = new Subject<void>();
   departmentCountUpdated: Subject<void> = new Subject<void>();
@@ -41,7 +39,6 @@ export class EmployeeService {
   getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.apiUrl)
   }
-
 
   addEmployee(employee: Employee): Observable<Employee> {
     return this.http.post<Employee>(this.apiUrl, employee).pipe(
@@ -87,10 +84,7 @@ export class EmployeeService {
     }
     return null;
   }
-  // filtersUpdated(){
-  //   this.employeesSubject.next();
-  // }
-
+  
   searchAndFilter(filterObject: FilterObject) {
     this.filtersUpdated.next(filterObject);
   }

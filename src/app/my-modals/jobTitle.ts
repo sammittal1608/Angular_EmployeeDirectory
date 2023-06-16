@@ -1,9 +1,7 @@
 export class JobTitle {
-
     id: string;
     name: string;
     count: number;
-
     constructor(args: any) {
 
         this.id = args.id;

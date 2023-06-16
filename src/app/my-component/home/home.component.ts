@@ -30,15 +30,11 @@ export class HomeComponent {
   isOfficeFilterClicked?: Boolean
   isJobTitleFilterClicked?: boolean
    filterEmployees ?: Employee[];
-
-  // filterEmployees = this.employeeService?.getEmployeesByAPI();
   constructor(employeeService: EmployeeService, filterObject: FilterObject) {
     this.employeeService = employeeService;
     this.filterObject = filterObject;
   }
   getFilteredEmployees() {
-    //call the service method by passing search and filter object
-    // this.filterEmployees = this.employeeService?.searchAndFilter(this.filterObject);
     this.employeeService?.searchAndFilter(this.filterObject);
 
   }
@@ -49,11 +45,6 @@ export class HomeComponent {
     this.getFilteredEmployees();
 
   }
-  // searchFilter(searchValue: string, seachType: string) {
-  //  this.filterObject.searchTerm =searchValue;
-  //  this.filterObject.searchType = seachType;
-  //  this.getFilteredEmployees();
-  // }
 
   handleDepartmentClick(selectedDepartmentId: string) {
 
@@ -68,11 +59,10 @@ export class HomeComponent {
   }
 
   handleJobTitleClick(selectedJobTitleId: string) {
-    // this.jobTitleFilterValue = jobTitleValue;
     this.filterObject.jobTitleFilter = selectedJobTitleId;
     this.getFilteredEmployees();
   }
-  // Parent component
+
   handleSearchFilter(parameters: any[]) {
     let searchTerm = parameters[0];
     let searchType = parameters[1];
