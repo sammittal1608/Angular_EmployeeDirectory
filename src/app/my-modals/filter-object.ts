@@ -1,4 +1,3 @@
-
 export class FilterObject
  {
     departmentFilter?: string;

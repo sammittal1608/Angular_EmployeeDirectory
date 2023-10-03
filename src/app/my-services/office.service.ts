@@ -1,56 +1,49 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, map, of, throwError } from 'rxjs';
 import { Office } from '../my-modals/office';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OfficeService {
+  private apiUrl = 'https://localhost:7152/api/office';
+  offices: Office[] = [];
 
-  constructor() { }
-  getOffice(): Observable<Office[]> {
-    let offices = localStorage.getItem('offices');
-    if (offices) {
-      let data = JSON.parse(offices);
-      return of(data);
-    }
-    else {
-      let officeList = [
-        new Office({ id: 1, name: 'Seattle', count: 0 }),
-        new Office({ id: 2, name: 'India', count: 0 }),
+  constructor(private http: HttpClient) { }
 
-      ]
-      localStorage.setItem('offices', JSON.stringify(officeList));
-      return of(officeList);
-    }
+  getOfficeById(officeId: any): Observable<Office> {
+    const url = `${this.apiUrl}/${officeId}`;
+    return this.http.get<Office>(url);
   }
-  getOfficeById(officeId: any): any {
-    let offices = localStorage.getItem('offices');
-    if (offices) {
-      let data = JSON.parse(offices);
-      let office = data.find((o: Office) => Number(o.id) == officeId);
+
+  getOffices(): Observable<Office[]> {
+    return this.http.get<Office[]>(this.apiUrl)
+      .pipe(
+        map((offices: Office[]) => {
+          this.offices = offices;
+          return offices;
+        })
+      );
+  }
+
+  getOfficeList(): Office[] {
+    return this.offices;
+  }
+
+  getOfficeByOffId(OfficeId: string) {
+    let office = this.offices.find((o: Office) => o.id == OfficeId)
+    if (office) {
       return office;
-    } 
-    else {
-      return null;
     }
+    return null;
   }
-  updateOfficeCount(officeName: Office): void {
-    let offices: Office[] = JSON.parse(localStorage.getItem('offices') || '[]');
-    let officeIndex: number = offices.findIndex((d: Office) => d.id === officeName.id);
 
-    if (officeIndex !== -1) {
-      offices[officeIndex].count++;
-      localStorage.setItem('offices', JSON.stringify(offices));
+  getOfficeIdByName(officeName: string): string {
+    let office = this.offices.find((o: Office) => o.name == officeName);
+    if (office) {
+      return office.id;
     }
-  }
-  updateEditOfficeCount(officeName: Office): void {
-    let offices: Office[] = JSON.parse(localStorage.getItem('offices') || '[]');
-    let officeIndex: number = offices.findIndex((d: Office) => d.id === officeName.id);
-
-    if (officeIndex !== -1) {
-      offices[officeIndex].count--;
-      localStorage.setItem('offices', JSON.stringify(offices));
-    }
+    return '';
   }
 }

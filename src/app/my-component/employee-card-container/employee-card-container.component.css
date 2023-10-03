@@ -4,7 +4,8 @@
     /* height: 25rem; */
     /* padding: 0.8rem; */
     border: 1px solid #999898;
-    margin : -1rem 1.55rem 2rem 4.5rem;
+    margin : -1rem .55rem 2rem 4.5rem;
+    padding-right: 0.5rem;
 }
 .employee-details-card {
     background-color: #e9e8e8;

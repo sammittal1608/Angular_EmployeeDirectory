@@ -22,42 +22,34 @@ export class EmployeeCardComponent implements OnInit {
   @Input() employee!: Employee;
   @Output() cardClick: EventEmitter<Employee> = new EventEmitter<Employee>();
   department: any;
-  jobTitle: any = {};
-  office: any = {};
+  jobTitle: any ;
+  office: any ;
 
   ngOnInit(): void {
-    // this.department = this.departmentService.GetDepartmentById(this.employee.department);
-    // if (this.department == null) {
-    //   this.department = new Department({ id: 0, name: '', count: 0 });
-    // }
-    // this.jobTitle = this.jobTitleService.GetJobTitleById(this.employee.jobTitle);
-    // this.office=this.officeService.GetOfficeById(this.employee.office);
+    
+   this.getDepartment();
+   this.getJobTitle();
+   this.getOffice();
   }
-
-  getDepartmentName(): string{
-    let department = this.departmentService.getDepartmentById(this.employee.department);
-    if(department){
-      return department.name;
-    }
-    return "";
-  }
-  getOfficeName(): string{
-    let office = this.officeService.getOfficeById(this.employee.office);
-    if(office){
-      return office.name;
-    }
-    return "";
-  }
-  getJobTitleName(): string{
-    let jobTitle = this.jobTitleService.getJobTitleById(this.employee.jobTitle);
-    if(jobTitle){
-      return jobTitle.name;
-    }
-    return "";
-  }
+   
+getDepartment(){
+  this.department = this.departmentService.getDepartmentById(this.employee.department).subscribe(data =>{
+    this.department = data;
+  });
+}
+getJobTitle(){
+  this.jobTitle = this.jobTitleService.getJobTitleById(this.employee.jobTitle).subscribe(data =>{
+    this.jobTitle =data;
+  });
+}
+getOffice(){
+  this.office=this.officeService.getOfficeById(this.employee.office).subscribe(data =>{
+    this.office = data;
+  });
+}
   handleClick(){
     this.cardClick.emit(this.employee); 
   }
-   icons: string[] = ["telephone", "envelope", "chat", "star", "heart"];
+  //  icons: string[] = ["telephone", "envelope", "chat", "star", "heart"];
 }
 
